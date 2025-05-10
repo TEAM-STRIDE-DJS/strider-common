@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 
 @Getter
-public enum StrideErrorCodes {
+public enum StriderErrorCodes {
     OK("success", HttpStatus.OK, 2000, "Request Successed"),
     BAD_REQUEST("fail", HttpStatus.BAD_REQUEST, 4000, "Bad Request"),
     INTERNAL_SERVER_ERROR("fail", HttpStatus.INTERNAL_SERVER_ERROR, 5000, "Internal server error");
@@ -16,15 +16,15 @@ public enum StrideErrorCodes {
     private final Integer code;
     private final String message;
 
-    StrideErrorCodes(String status, HttpStatusCode httpStatusCode, Integer code, String message){
+    StriderErrorCodes(String status, HttpStatusCode httpStatusCode, Integer code, String message){
         this.status = status;
         this.httpStatusCode = httpStatusCode;
         this.code = code;
         this.message = message;
     }
 
-    public static StrideErrorCodes fromHttpStatusCode(HttpStatusCode statusCode) {
-        for (StrideErrorCodes errorCode : StrideErrorCodes.values()) {
+    public static StriderErrorCodes fromHttpStatusCode(HttpStatusCode statusCode) {
+        for (StriderErrorCodes errorCode : StriderErrorCodes.values()) {
             if (errorCode.getHttpStatus().value() == statusCode.value()) {
                 return errorCode;
             }
@@ -32,8 +32,8 @@ public enum StrideErrorCodes {
         return INTERNAL_SERVER_ERROR;
     }
 
-    public static StrideErrorCodes fromStatusCode(int statusCode) {
-        for (StrideErrorCodes errorCode : StrideErrorCodes.values()) {
+    public static StriderErrorCodes fromStatusCode(int statusCode) {
+        for (StriderErrorCodes errorCode : StriderErrorCodes.values()) {
             if (errorCode.getHttpStatus().value() == statusCode) {
                 return errorCode;
             }

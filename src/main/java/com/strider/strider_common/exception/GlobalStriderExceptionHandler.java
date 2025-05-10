@@ -1,21 +1,21 @@
 package com.strider.strider_common.exception;
 
-import com.strider.strider_common.response.StrideResponse;
+import com.strider.strider_common.response.StriderResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class GlobalStrideExceptionHandler {
+public class GlobalStriderExceptionHandler {
 
-    public GlobalStrideExceptionHandler(){
+    public GlobalStriderExceptionHandler(){
 
     }
 
-    @ExceptionHandler(StrideException.class)
-    public ResponseEntity<StrideResponse<Object>> handleStrideException(StrideException ex) {
+    @ExceptionHandler(StriderException.class)
+    public ResponseEntity<StriderResponse<Object>> handleStrideException(StriderException ex) {
         return ResponseEntity
                 .status(ex.getErrorCode().getHttpStatus())
-                .body(StrideResponse.error(ex.getErrorCode()));
+                .body(StriderResponse.error(ex.getErrorCode()));
     }
 }
