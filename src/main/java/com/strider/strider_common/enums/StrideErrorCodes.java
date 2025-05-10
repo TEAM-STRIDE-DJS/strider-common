@@ -16,7 +16,7 @@ public enum StrideErrorCodes {
     private final Integer code;
     private final String message;
 
-    private StrideErrorCodes(String status, HttpStatusCode httpStatusCode, Integer code, String message){
+    StrideErrorCodes(String status, HttpStatusCode httpStatusCode, Integer code, String message){
         this.status = status;
         this.httpStatusCode = httpStatusCode;
         this.code = code;
