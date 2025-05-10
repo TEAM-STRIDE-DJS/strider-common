@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.strider'
-version = '1.0.3'
+version = '1.0.4'
 
 java {
 	toolchain {
@@ -33,4 +33,8 @@ publishing {
 			url = uri("https://jitpack.io")
 		}
 	}
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
 }
